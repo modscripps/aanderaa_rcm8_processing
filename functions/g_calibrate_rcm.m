@@ -54,7 +54,7 @@ kref = find(rcm.ref < rcmcal.ref_reading-1 | ...
 
 figure(1)
 clf
-subaxis(4,1,1)
+subplot(4,1,1)
 plot(rcm.ref,'k')
 hold on
 text(0.1,0.9,sprintf('ref reading: %1d',rcmcal.ref_reading),...
@@ -212,7 +212,7 @@ j = find(k1(:)+1 ~= k2(:));
 kspans = [[1;k2(j)], [k1(j);k(nk)]];
 kspans = [kspans, kspans(:,2)-kspans(:,1)+1]
 
-subaxis(4,1,2)
+subplot(4,1,2)
 plot(S,'r')
 hold on
 plot(Sraw,'k');
@@ -227,7 +227,7 @@ time_temp = d(:,end)';
 k = ~isnan(time_temp);
 k2 = find(k);
 
-subaxis(4,1,3)
+subplot(4,1,3)
 plot(diff(time_temp(k)).*24-nanmedian(diff(time_temp(k))).*24);
 ylabel('\Delta t anomaly [h]')
 set(gca,'ylim',[-3 3])
